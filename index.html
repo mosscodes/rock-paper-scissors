@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+    <script>
+
+        //Computer picks it's move
+        function computerPlay() {
+            const num = Math.floor(Math.random() * 3)
+            if (num === 0) {
+                return "rock"
+            }
+            else if (num === 1) {
+                return "paper"
+            }
+            else {
+                return "scissors"
+            }
+        }
+
+        //The user picks their move
+        //Checks for a valid input
+        function userPlay() {
+            let valchk = false
+            let userChoice = prompt("Which will you choose? Rock, Paper, or Scissors?").toLowerCase()
+
+            while (valchk === false) {
+
+                if (userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors") {
+                    userChoice = prompt("You must choose Rock, Paper, or Scissors").toLowerCase()
+                }
+                else {
+                    valchk = true
+                    return userChoice
+                }
+            }
+        }
+
+        //Compare's the user's pick against the computer's pick
+        //Determines the winner of the round and returns the winner
+        function playRound(playerSelection, computerSelection) {
+                switch (playerSelection) {
+                    case "rock": 
+                        if (computerSelection === "paper") {
+                            alert("You lose! Paper covers Rock!")
+                            return "computer";
+                        }
+                        else if (computerSelection === "scissors") {
+                            alert("You win! Rock smashes Scissors!")
+                            return "player";
+                        }
+                        else {
+                            alert("It's a Draw!")
+                            break;
+                        }
+                    case "paper":
+                        if (computerSelection === "scissors") {
+                            alert("You lose! Scissors cut Paper!")
+                            return "computer";
+                        }
+                        else if (computerSelection === "rock") {
+                            alert("You win! Paper covers Rock!")
+                            return "player";
+                        }
+                        else {
+                            alert("It's a Draw!")
+                            break;
+                        }
+                    case "scissors":
+                        if (computerSelection === "rock") {
+                            alert("You lose! Rock smashes Scissors!")
+                            return "computer";
+                        }
+                        else if (computerSelection === "paper") {
+                            alert("You win! Scissors cut Paper!")
+                            return "player";
+                        }
+                        else {
+                            alert("It's a Draw!")
+                            break;
+                        }
+                }
+            }
+
+        //The actual game. Plays 5 rounds. The winner is the player with the highest score.
+        //Takes the returned winner and adds a point to the score
+        //Writes out a message stating who one and how many times the player one during the 5 rounds
+        function game() {
+            let computerScore = 0
+            let playerScore = 0
+
+            for (let i = 0; i < 5; i++) {
+                const winner = playRound(userPlay(), computerPlay())
+                if (winner === "player") {
+                    playerScore++
+                }
+                else if (winner === "computer"){
+                    computerScore++
+                }
+            }
+
+            if (computerScore > playerScore) {
+                alert(`You lost! Out of 5 games, you only won ${playerScore} times! Better luck next time!`)
+            }
+            else if (playerScore > computerScore) {
+                alert(`You won! Out of 5 games, you won ${playerScore} times!`)
+            }
+            else {
+                alert("It's a draw! Both you and the computer won the same amount of games!")
+            }
+        }
+    </script>
+</body>
+</html>
