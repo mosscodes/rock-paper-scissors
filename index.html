@@ -9,16 +9,9 @@
 
         //Computer picks it's move
         function computerPlay() {
-            const num = Math.floor(Math.random() * 3)
-            if (num === 0) {
-                return "rock"
-            }
-            else if (num === 1) {
-                return "paper"
-            }
-            else {
-                return "scissors"
-            }
+            const moves = ['rock', 'paper', 'scissors'];
+            const num = Math.floor(Math.random() * 3);
+            return moves[num];
         }
 
         //The user picks their move
