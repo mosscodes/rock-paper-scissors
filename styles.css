@@ -1,0 +1,16 @@
+body {
+    background-color: lightgrey;
+}
+
+h1 {
+    padding-top: 60px;
+}
+
+.score-container {
+    display: grid;
+    padding-bottom: 40px ;
+}
+
+.btn-container {
+    padding-bottom: 25px;
+}
