@@ -2,8 +2,6 @@ This is my version of the Rock Paper Scissors project from the Odin Project.
 
 The game is written in javascript.
 
-To play the game, open the index.html file in a web browser and open the console.
+The game uses a simple UI using HTML buttons to control if you want to choose rock, paper, or scissors.
 
-Type 'game()' in the console to begin. The game is 5 rounds and the winner is determined by whoever won the most amount of times within the 5 rounds. 
-
-I plan on coming back and making a proper html and css interface at some point.
+The first to five wins is the overall winner.
